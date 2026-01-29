@@ -1,20 +1,18 @@
 package com.example.orderSystem.member.domain;
 
+import com.example.orderSystem.common.time.BaseTime;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.management.relation.Role;
+
 import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter @ToString
 @Builder
 @Entity
-public class Member {
+public class Member extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +22,7 @@ public class Member {
     @Column(nullable = false)
     private String password;
     @Enumerated(EnumType.STRING)
-    private Role role;
-    private LocalDate created_time;
+    @Builder.Default
+    private Role role = Role.USER;
 
 }

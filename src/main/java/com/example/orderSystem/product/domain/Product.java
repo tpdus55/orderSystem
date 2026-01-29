@@ -1,20 +1,19 @@
 package com.example.orderSystem.product.domain;
 
+import com.example.orderSystem.common.time.BaseTime;
 import com.example.orderSystem.member.domain.Member;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@ToString
 @Builder
 @Entity
-public class Product {
+public class Product extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,9 +28,8 @@ public class Product {
     @Column(nullable = false)
     private Long stockQuantity;
     private String imagePath;
-    private LocalDate created_time;
 
-    public void ImageUrl(String imagePath){
+    public void updateImagePath(String imagePath){
         this.imagePath = imagePath;
     }
 }

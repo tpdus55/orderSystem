@@ -1,5 +1,6 @@
 package com.example.orderSystem.ordering.domain;
 
+import com.example.orderSystem.common.time.BaseTime;
 import com.example.orderSystem.member.domain.Member;
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,10 +9,10 @@ import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter @ToString
 @Builder
 @Entity
-public class Ordering {
+public class Ordering extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +21,5 @@ public class Ordering {
     private Member member;
     @Enumerated(EnumType.STRING)
     private Role order_status;
-    private LocalDate created_time;
 
 }

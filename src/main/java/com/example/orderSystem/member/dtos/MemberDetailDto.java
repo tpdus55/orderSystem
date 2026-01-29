@@ -5,22 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-public class MemberCreateDto {
+public class MemberDetailDto {
+    private Long id;
     private String name;
     private String email;
-    private String password;
 
-    public Member toEntity(String password){
-        return Member.builder()
-                .name(this.name)
-                .email(this.email)
-                .password(password)
+    public static MemberDetailDto fromEntity(Member member){
+        return MemberDetailDto.builder()
+                .id(member.getId())
+                .name(member.getName())
+                .email(member.getEmail())
                 .build();
     }
 }
