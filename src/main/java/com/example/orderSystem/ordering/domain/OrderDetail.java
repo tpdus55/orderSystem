@@ -25,6 +25,6 @@ public class OrderDetail extends BaseTime {
     private Product product;
 
     @Column(nullable = false)
-    private int quantity;
+    private int quantity; //주문 수량
 
 }
