@@ -1,5 +1,7 @@
-package com.example.orderSystem.common;
+package com.example.ordersystem.common;
 
+import com.example.ordersystem.common.dtos.CommonErrorDto;
+import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authorization.AuthorizationDeniedException;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.NoSuchElementException;
 
 @RestControllerAdvice
+@Hidden //swagger에서 제외 - 이 controller는 api가 아니기 때문에 제외
 public class CommonExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
