@@ -1,6 +1,5 @@
-package com.example.orderSystem.common;
+package com.example.ordersystem.common.dtos;
 
-import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

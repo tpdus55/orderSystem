@@ -1,4 +1,4 @@
-package com.example.orderSystem.common.auth;
+package com.example.ordersystem.common.auth;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

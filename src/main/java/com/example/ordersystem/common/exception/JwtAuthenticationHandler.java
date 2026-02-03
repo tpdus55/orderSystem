@@ -1,6 +1,6 @@
-package com.example.orderSystem.common.exception;
+package com.example.ordersystem.common.exception;
 
-import com.example.orderSystem.common.CommonErrorDto;
+import com.example.ordersystem.common.dtos.CommonErrorDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

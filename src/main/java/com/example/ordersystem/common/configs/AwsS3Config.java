@@ -1,4 +1,4 @@
-package com.example.orderSystem.common.configs;
+package com.example.ordersystem.common.configs;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -1,8 +1,8 @@
-package com.example.orderSystem.common.init;
+package com.example.ordersystem.common.init;
 
-import com.example.orderSystem.member.domain.Member;
-import com.example.orderSystem.member.domain.Role;
-import com.example.orderSystem.member.repository.MemberRepository;
+import com.example.ordersystem.member.domain.Member;
+import com.example.ordersystem.member.domain.Role;
+import com.example.ordersystem.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
