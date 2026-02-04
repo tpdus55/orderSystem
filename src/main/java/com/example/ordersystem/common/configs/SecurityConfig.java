@@ -1,6 +1,7 @@
-package com.example.orderSystem.common.exception;
+package com.example.ordersystem.common.configs;
 
-import com.example.orderSystem.common.auth.JwtTokenFilter;
+import com.example.ordersystem.common.auth.JwtTokenFilter;
+import com.example.ordersystem.common.exception.JwtAuthenticationHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,7 +43,16 @@ public class SecurityConfig {
                 .exceptionHandling(e-> e.authenticationEntryPoint(jwtAuthenticationHandler))
                 .authorizeHttpRequests
 
-        (a->a.requestMatchers("/member/create","/member/doLogin").permitAll().anyRequest().authenticated())
+        (a->a.requestMatchers(
+                "/member/create",
+                "/member/doLogin",
+                "/member/refresh-at",
+//                swagger사용을 위한 인증예외처리
+                "/v3/api-docs/**",
+                "/swagger-ui/**",
+                "/swagger-ui.html")
+
+                .permitAll().anyRequest().authenticated())
                 .build();
     }
 
