@@ -1,11 +1,10 @@
-package com.example.orderSystem.product.domain;
+package com.example.ordersystem.product.domain;
 
-import com.example.orderSystem.common.time.BaseTime;
-import com.example.orderSystem.member.domain.Member;
+import com.example.ordersystem.common.time.BaseTime;
+import com.example.ordersystem.member.domain.Member;
+import com.example.ordersystem.product.dtos.ProductUpdateDto;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,5 +30,16 @@ public class Product extends BaseTime {
 
     public void updateImagePath(String imagePath){
         this.imagePath = imagePath;
+    }
+
+    public void updateStockQuantity(int orderQuantity){
+        this.stockQuantity = this.stockQuantity-orderQuantity;
+    }
+
+    public void updateProduct(ProductUpdateDto dto){
+        this.name = dto.getName();
+        this.category = dto.getCategory();
+        this.stockQuantity = dto.getStockQuantity();
+        this.price = dto.getPrice();
     }
 }
