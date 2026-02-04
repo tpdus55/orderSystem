@@ -1,14 +1,13 @@
-package com.example.orderSystem.ordering.dtos;
+package com.example.ordersystem.ordering.dtos;
 
 import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter @ToString
+@Data
 @Builder
-public class OrderRequestDto {
+public class OrderCreateDto {
     private Long productId;
     private int productCount;
-
 
 }

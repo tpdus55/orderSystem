@@ -1,11 +1,11 @@
-package com.example.orderSystem.member.service;
+package com.example.ordersystem.member.service;
 
-import com.example.orderSystem.member.domain.Member;
-import com.example.orderSystem.member.dtos.MemberCreateDto;
-import com.example.orderSystem.member.dtos.MemberDetailDto;
-import com.example.orderSystem.member.dtos.MemberListDto;
-import com.example.orderSystem.member.dtos.MemberLoginDto;
-import com.example.orderSystem.member.repository.MemberRepository;
+import com.example.ordersystem.member.domain.Member;
+import com.example.ordersystem.member.dtos.MemberCreateDto;
+import com.example.ordersystem.member.dtos.MemberDetailDto;
+import com.example.ordersystem.member.dtos.MemberListDto;
+import com.example.ordersystem.member.dtos.MemberLoginDto;
+import com.example.ordersystem.member.repository.MemberRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -34,7 +34,6 @@ public class MemberService {
         }
         System.out.println(passwordEncoder.encode(dto.getPassword()));
         Member member = dto.toEntity(passwordEncoder.encode(dto.getPassword()));
-        System.out.println(member);
         return memberRepository.save(member);
 
     }

@@ -1,7 +1,7 @@
-package com.example.orderSystem.ordering.domain;
+package com.example.ordersystem.ordering.domain;
 
-import com.example.orderSystem.common.time.BaseTime;
-import com.example.orderSystem.product.domain.Product;
+import com.example.ordersystem.common.time.BaseTime;
+import com.example.ordersystem.product.domain.Product;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,7 +18,7 @@ public class OrderDetail extends BaseTime {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id",foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),nullable = false)
-    private Order order;
+    private Ordering order;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id",foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),nullable = false)
@@ -26,5 +26,6 @@ public class OrderDetail extends BaseTime {
 
     @Column(nullable = false)
     private int quantity; //주문 수량
+
 
 }

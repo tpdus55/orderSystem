@@ -1,6 +1,6 @@
-package com.example.orderSystem.product.dtos;
+package com.example.ordersystem.product.dtos;
 
-import com.example.orderSystem.product.domain.Product;
+import com.example.ordersystem.product.domain.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class ProductDetailDto {
+public class ProductListDto {
     private Long id;
     private String name;
     private Long price;
@@ -18,8 +18,8 @@ public class ProductDetailDto {
     private Long stockQuantity;
     private String imagePath;
 
-    public static ProductDetailDto fromEntity(Product product){
-        return ProductDetailDto.builder()
+    public static ProductListDto fromEntity(Product product){
+        return ProductListDto.builder()
                 .id(product.getId())
                 .name(product.getName())
                 .category(product.getCategory())
@@ -28,5 +28,4 @@ public class ProductDetailDto {
                 .imagePath(product.getImagePath())
                 .build();
     }
-
 }

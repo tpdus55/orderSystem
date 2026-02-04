@@ -1,11 +1,10 @@
-package com.example.orderSystem.member.dtos;
+package com.example.ordersystem.member.dtos;
 
-import com.example.orderSystem.member.domain.Member;
+import com.example.ordersystem.member.domain.Member;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @AllArgsConstructor
 @NoArgsConstructor

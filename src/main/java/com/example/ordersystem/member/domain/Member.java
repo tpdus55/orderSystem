@@ -1,11 +1,8 @@
-package com.example.orderSystem.member.domain;
+package com.example.ordersystem.member.domain;
 
-import com.example.orderSystem.common.time.BaseTime;
+import com.example.ordersystem.common.time.BaseTime;
 import jakarta.persistence.*;
 import lombok.*;
-
-
-import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor

@@ -1,7 +1,7 @@
-package com.example.orderSystem.ordering.domain;
+package com.example.ordersystem.ordering.domain;
 
-import com.example.orderSystem.common.time.BaseTime;
-import com.example.orderSystem.member.domain.Member;
+import com.example.ordersystem.common.time.BaseTime;
+import com.example.ordersystem.member.domain.Member;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "ordering")
-public class Order extends BaseTime {
+public class Ordering extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,7 +25,7 @@ public class Order extends BaseTime {
 
     @Enumerated(EnumType.STRING)
     @Builder.Default
-    private Role order_status = Role.Ordered;
+    private OrderStatus orderStatus = OrderStatus.ORDERED;
 
     @OneToMany(mappedBy = "order",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @Builder.Default
