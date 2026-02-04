@@ -1,11 +1,12 @@
-package com.example.orderSystem.product.dtos;
+package com.example.ordersystem.product.dtos;
 
-import com.example.orderSystem.member.domain.Member;
-import com.example.orderSystem.product.domain.Product;
+import com.example.ordersystem.member.domain.Member;
+import com.example.ordersystem.product.domain.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,15 +17,14 @@ public class ProductCreateDto {
     private Long price;
     private String category;
     private Long stockQuantity;
-    private String imagePath;
+    private MultipartFile productImage;
 
-    public Product toEntity(Member member, String imagePath){
+    public Product toEntity(Member member){
         return Product.builder()
                 .name(this.name)
                 .price(this.price)
                 .category(this.category)
                 .stockQuantity(this.stockQuantity)
-                .imagePath(imagePath)
                 .member(member)
                 .build();
     }
