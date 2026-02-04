@@ -1,10 +1,8 @@
-package com.example.orderSystem.product.controller;
+package com.example.ordersystem.product.controller;
 
-import com.example.orderSystem.product.domain.Product;
-import com.example.orderSystem.product.dtos.ProductCreateDto;
-import com.example.orderSystem.product.dtos.ProductDetailDto;
-import com.example.orderSystem.product.dtos.ProductListDto;
-import com.example.orderSystem.product.service.ProductService;
+import com.example.ordersystem.product.domain.Product;
+import com.example.ordersystem.product.dtos.*;
+import com.example.ordersystem.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,9 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.HashMap;
-import java.util.List;
 
 @RestController
 @RequestMapping("/product")
@@ -31,9 +26,8 @@ public class ProductController {
 //    상품등록
     @PostMapping("/create")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> save(@RequestPart("dto") ProductCreateDto dto
-                                , @RequestPart("productImage") MultipartFile productImage){
-        Product product = productService.save(dto, productImage);
+    public ResponseEntity<?> save(@ModelAttribute ProductCreateDto productCreateDto){
+        Product product = productService.save(productCreateDto);
        return ResponseEntity.status(HttpStatus.CREATED).body(product.getId());
     }
 //    상품상세조회
@@ -44,7 +38,14 @@ public class ProductController {
     }
 //    상품목록조회
     @GetMapping("/list")
-    public Page<ProductListDto> productList(@PageableDefault(size = 10 , sort = "id",direction = Sort.Direction.ASC) Pageable pageable){
-        return productService.productList(pageable);
+    public Page<ProductListDto> productList(Pageable pageable, ProductSearchDto searchDto){
+        return productService.productList(pageable,searchDto);
+    }
+
+//    상품수정
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id , @ModelAttribute ProductUpdateDto dto){
+        productService.update(id,dto);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 }
